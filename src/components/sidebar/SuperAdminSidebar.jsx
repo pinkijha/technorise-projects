@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import logo from '../../assets/logo.png'
-import icon from '../../assets/icon.png'
+// import unisolLogo from "../../assets/
 // import technokrateSmallLogo from "../../assets/TechknokrateSmalllogo.png";
 import { useSignIn } from "../../hooks/auth/useSignIn";
 import { useNavigate } from "react-router-dom";
 import { userAuthState } from "../../state/authenticatedState/authenticatedState";
 import { useSetRecoilState } from "recoil";
+import logo from "../../assets/logo.png"
 
-const SuperAdminSidebar = ({ setActiveTab, isCollapsed }) => {
+const SuperAdminSidebar = ({ setActiveTab, isCollapsed,selectedItem,setSelectedItem }) => {
   const [isInventoryExpanded, setInventoryExpanded] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("Description");
+  // const [selectedItem, setSelectedItem] = useState("Description");
   const navigate = useNavigate();
   const { resetSuperAdmin } = useSignIn();
   const setUserInfo = useSetRecoilState(userAuthState);
@@ -55,7 +55,7 @@ const SuperAdminSidebar = ({ setActiveTab, isCollapsed }) => {
             />
           ) : (
             <img
-              className="h-[80px] w-[200px] object-contain"
+              className="h-[110px] w-[220px] object-contain"
               src={logo}
             />
           )}
@@ -77,7 +77,7 @@ const SuperAdminSidebar = ({ setActiveTab, isCollapsed }) => {
                 >
                   <span className={isCollapsed ? "" : "ml-0"}>
                     <img
-                      src={icon}
+                      // src={technokrateSmallLogo}
                       alt="Warehouse Icon"
                       className="w-4 h-4"
                     />
@@ -87,8 +87,8 @@ const SuperAdminSidebar = ({ setActiveTab, isCollapsed }) => {
               </NavLink>
             </li>
 
-            <li onClick={() => handleTabClick("Dashboard")}>
-              <NavLink to="/about" className="cursor-pointer">
+            <li onClick={() => handleTabClick("Sickle Cell")}>
+              <NavLink to="/sicklecell" className="cursor-pointer">
                 <div
                   className={`flex ${
                     isCollapsed ? "justify-center" : "pl-5"
@@ -110,8 +110,8 @@ const SuperAdminSidebar = ({ setActiveTab, isCollapsed }) => {
               </NavLink>
             </li>
 
-            <li onClick={() => handleTabClick("Dashboard")}>
-              <NavLink to="/about" className="cursor-pointer">
+            <li onClick={() => handleTabClick("Breast Cancer")}>
+              <NavLink to="/breastCancer" className="cursor-pointer">
                 <div
                   className={`flex ${
                     isCollapsed ? "justify-center" : "pl-5"
@@ -133,8 +133,8 @@ const SuperAdminSidebar = ({ setActiveTab, isCollapsed }) => {
               </NavLink>
             </li>
 
-                 <li onClick={() => handleTabClick("Dashboard")}>
-              <NavLink to="/about" className="cursor-pointer">
+                 <li onClick={() => handleTabClick("Cervical Cancer")}>
+              <NavLink to="/cervicalCancer" className="cursor-pointer">
                 <div
                   className={`flex ${
                     isCollapsed ? "justify-center" : "pl-5"

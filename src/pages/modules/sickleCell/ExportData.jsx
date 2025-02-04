@@ -4,7 +4,6 @@ import filterPointer from '../../../assets/filterPointer.png';
 import Search from '../../../assets/vector.png';
 import DownArrow from '../../../assets/DownArrow.svg';
 import Download from '../../../assets/Download.svg';
-import MyDatePicker from '../breastCancer/datePicker';
 
 const ExportData = () => {
     // Sample data
@@ -28,8 +27,6 @@ const ExportData = () => {
     });
 
     const [filteredData, setFilteredData] = useState(tableData);
-    const [toggleCenterName, settoggleCenterName] = useState(false)
-    const [toggleAge, settoggleAge] = useState(false)
 
     const handleFilterChange = (field, value) => {
         setFilters((prevFilters) => ({
@@ -82,8 +79,8 @@ const ExportData = () => {
 
     return (
         <div className="Lower">
-            <div className="h-[100vh] w-[80vw] mx-2 my-1 relative">
-                <div className="heading px-6 py-4 flex gap-6 justify-between items-center">
+            <div className="h-[100vh] w-full mx-2 my-1 bg-[#FFFFFF] shadow-md rounded-md relative">
+                <div className="heading px-6 py-4 flex gap-6 items-center">
                     <div className="btns flex gap-4 text-[12px] items-center">
                         <button
                             onClick={() => setFilterOptions(!filterOptions)}
@@ -99,13 +96,10 @@ const ExportData = () => {
                             <span className="font-semibold">Export into Excel</span>
                         </button>
                     </div>
-                    <div className="totatNumber">
-                        <h6 className='text-[0.65rem]'><span className="text-[#004fea]">Number of lists :</span> {tableData.length}</h6>
-                    </div>
                 </div>
 
                 {filterOptions && (
-                    <div className="absolute w-[60vw] min-h-[70vh] top-[6.5vh] left-[5%] border-2 border-black rounded-lg bg-[#dfeeff] m-2 p-3">
+                    <div className="absolute w-[60vw] min-h-[70vh] top-[7vh] left-[5%] border-2 border-black rounded-lg bg-[#dfeeff] m-2 p-3">
                         <img src={filterPointer} alt="" className="relative top-[-3.3vh] left-[0.8vw] size-3" />
                         <div className="heading flex justify-between items-center px-11 py-6">
                             <h1 className="font-bold text-xl">Filters</h1>
@@ -118,47 +112,33 @@ const ExportData = () => {
                             <div className="flex flex-col gap-4">
                                 {/* Location Filter */}
                                 <div className="flex flex-col gap-2">
-                                    <h2 className="mx-12 text-md font-semibold flex items-center gap-3">
-                                        <img src={DownArrow} alt="" className="size-6" />
+                                    <h2 className="px-12 text-md font-semibold flex items-center gap-3">
+                                        <img src={DownArrow} alt="" className="size-2" />
                                         <span>Search Location</span>
                                     </h2>
-                                    <div className="rounded-md w-[25vw] bg-[#FFFFFF] mx-12 flex flex-col items-start justify-center">
-                                        <label htmlFor="location">
-                                            <div className="mx-4 py-2 rounded-sm relative">
-                                                <img src={Search} alt="" className="absolute z-10 top-[35%] right-[0.8vw] size-4" />
-                                                <input
-                                                    id="location"
-                                                    type="text"
-                                                    placeholder="Search Location"
-                                                    className="pr-8 pl-2 py-1 w-[20vw] rounded-md border placeholder:text-[#BCBCBC]"
-                                                    value={filters.location}
-                                                    onChange={(e) => handleFilterChange("location", e.target.value)}
-                                                />
-                                            </div>
-                                        </label>
-                                        <div className="checkboxes">
-                                            {['Wadi', 'Hingna', 'Chhatrapati', 'Kamathi', 'Ramtek'].map((items, index) => {
-                                                return <div key={index} className=" mx-4 flex gap-2 py-1 rounded-sm relative">
-                                                    <input
-                                                        type="checkbox"
-                                                        className="px-2 py-2 rounded-md border"
-                                                    />
-                                                    <span>{items}</span>
-                                                </div>
-                                            })}
-                                        </div></div>
+                                    <label htmlFor="location">
+                                        <div className="bg-[#FFFFFF] mx-4 px-12 py-2 rounded-sm relative">
+                                            <img src={Search} alt="" className="absolute z-10 top-[2.5vh] right-[6vw] size-4" />
+                                            <input
+                                                id="location"
+                                                type="text"
+                                                placeholder="Search Location"
+                                                className="pr-8 pl-2 py-1 rounded-md border placeholder:text-[#BCBCBC]"
+                                                value={filters.location}
+                                                onChange={(e) => handleFilterChange("location", e.target.value)}
+                                            />
+                                        </div>
+                                    </label>
                                 </div>
 
                                 {/* Center Name Filter */}
-                                <div className="name mx-12 flex flex-col gap-2">
-                                    <h2 onClick={()=>{
-                                        settoggleCenterName(!toggleCenterName)
-                                    }} className="text-md font-semibold flex items-center gap-3 cursor-pointer">
-                                        <img src={DownArrow} alt="" className="size-6" />
+                                <div className="name flex flex-col gap-2">
+                                    <h2 className="px-12 text-md font-semibold flex items-center gap-3">
+                                        <img src={DownArrow} alt="" className="size-2" />
                                         <span>Center Name</span>
                                     </h2>
-                                    {toggleCenterName?<label htmlFor="enterCenter">
-                                        <div className="bg-[#FFFFFF] w-[25vw] mx-4 px-4 py-2 rounded-md relative right-4">
+                                    <label htmlFor="enterCenter">
+                                        <div className="bg-[#FFFFFF] mx-4 px-12 py-2 rounded-sm relative">
                                             <input
                                                 id="enterCenter"
                                                 type="text"
@@ -168,80 +148,89 @@ const ExportData = () => {
                                                 onChange={(e) => handleFilterChange("centerName", e.target.value)}
                                             />
                                         </div>
-                                    </label>:null}
+                                    </label>
                                 </div>
 
                                 {/* Age Group Filter */}
-                                <div className="ageGroup mx-12 flex flex-col gap-2">
-                                    <h2 onClick={()=>{
-                                        settoggleAge(!toggleAge)
-                                    }}  className="text-md font-semibold flex items-center gap-3 cursor-pointer">
-                                        <img src={DownArrow} alt="" className="size-6" />
+                                <div className="ageGroup flex flex-col">
+                                    <h2 className="px-12 text-md font-semibold flex items-center gap-3">
+                                        <img src={DownArrow} alt="" className="size-2" />
                                         <span>Age Group</span>
                                     </h2>
-                                    {toggleAge?<div className="flex px-2 gap-2">
+                                    <div className="flex gap-2 ml-3">
                                         <input
                                             type="number"
                                             placeholder="Min Age"
-                                            className="bg-[#FFFFFF] w-[15vw] mx-2 px-4 py-2 rounded-md relative right-4"
+                                            className="bg-[#FFFFFF] px-5 py-2 rounded-sm"
                                             value={filters.ageFrom}
                                             onChange={(e) => handleFilterChange("ageFrom", e.target.value)}
                                         />
                                         <input
                                             type="number"
                                             placeholder="Max Age"
-                                            className="bg-[#FFFFFF] w-[15vw] mx-2 px-4 py-2 rounded-md relative right-4"
+                                            className="bg-[#FFFFFF] px-5 py-2 rounded-sm"
                                             value={filters.ageTo}
                                             onChange={(e) => handleFilterChange("ageTo", e.target.value)}
                                         />
-                                    </div>:null}
+                                    </div>
                                 </div>
                             </div>
-                            <div className="name mx-12 flex flex-col gap-2">
-                                <h2 className="text-md font-semibold flex items-center gap-3">
-                                    <img src={DownArrow} alt="" className="size-6" />
-                                    <span>Serial Number</span>
-                                </h2>
-                                <label htmlFor="enterCenter">
-                                    <div className="bg-[#FFFFFF] w-[21vw] mx-4 px-4 py-2 rounded-md relative right-4">
+                            <div className="flex flex-col gap-3">
+                                {/* Date Range Filter */}
+                                <div className="dateRange flex flex-col gap-2">
+                                    <h2 className="px-12 text-md font-semibold flex items-center gap-3">
+                                        <img src={DownArrow} alt="" className="size-2" />
+                                        <span>Date Range</span>
+                                    </h2>
+                                    <div className="flex">
                                         <input
-                                            id="enterCenter"
-                                            type="text"
-                                            placeholder="Enter Serial Number"
-                                            className="pr-8 pl-2 py-1 rounded-md border placeholder:text-[#BCBCBC]"
-                                            value={filters.serialNumber}
-                                            onChange={(e) => handleFilterChange("serialNumber", e.target.value)}
+                                            type="date"
+                                            value={filters.dateFrom}
+                                            onChange={(e) => handleFilterChange("dateFrom", e.target.value)}
+                                            className="bg-[#FFFFFF] mx-4 px-5 py-2 rounded-sm"
+                                        />
+                                        <input
+                                            type="date"
+                                            value={filters.dateTo}
+                                            onChange={(e) => handleFilterChange("dateTo", e.target.value)}
+                                            className="bg-[#FFFFFF] mx-4 px-5 py-2 rounded-sm"
                                         />
                                     </div>
-                                </label>
-                            <div className="selectDate flex flex-col gap-2 relative right-4">
-                                <h2 className='text-md font-semibold flex gap-2 px-3'>
-                                    <img src={DownArrow} alt="" className="" />
-                                    <span>Select Date</span></h2>
-                                <div className="bg-[#FFFFFF] mx-4 px-12 py-2 rounded-md relative">
-                                    <div className="flex gap-1 items-start justify-center">
-                                        <span className='text-md '>From</span> <MyDatePicker />
-                                        <span className='text-md'>To</span><MyDatePicker />
-                                    </div>
                                 </div>
-                            </div>
+
+                                {/* Sex Filter */}
+                                <div className="sex flex flex-col gap-2 mt-3">
+                                    <h2 className="px-12 text-md font-semibold flex items-center gap-3">
+                                        <img src={DownArrow} alt="" className="size-2" />
+                                        <span>Sex</span>
+                                    </h2>
+                                    <select
+                                        value={filters.sex}
+                                        onChange={(e) => handleFilterChange("sex", e.target.value)}
+                                        className="bg-[#FFFFFF] mx-4 px-12 py-2 rounded-sm"
+                                    >
+                                        <option value="All">All</option>
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                 )}
 
                 {/* Table Content */}
-                <div className="table bg-[#FFFFFF] min-h-[90vh] shadow-md rounded-md border-collapse">
-                    <table className=" w-[80vw]">
+                <div className="table">
+                    <table className=" w-[80vw] bg-white border-collapse">
                         <thead>
-                            <tr className="border-b-2 py-2 px-2 border-gray-300">
-                                <th className="py-2 px-9 border-b-2 border-gray-300">Sr No</th>
-                                <th className="py-2 px-9 border-b-2 border-gray-300">Unique Id</th>
-                                <th className="py-2 px-9 border-b-2 border-gray-300">Center Name</th>
-                                <th className="py-2 px-9 border-b-2 border-gray-300">Location</th>
-                                <th className="py-2 px-9 border-b-2 border-gray-300">Sex</th>
-                                <th className="py-2 px-9 border-b-2 border-gray-300">Age</th>
-                                <th className="py-2 px-9 border-b-2 border-gray-300">Date</th>
+                            <tr className="border-b-2 border-gray-300">
+                                <th className="py-2 px-9 ">Sr No</th>
+                                <th className="py-2 px-9 ">Unique Id</th>
+                                <th className="py-2 px-9 ">Center Name</th>
+                                <th className="py-2 px-9">Location</th>
+                                <th className="py-2 px-9 ">Sex</th>
+                                <th className="py-2 px-9">Age</th>
+                                <th className="py-2 px-9">Date</th>
                             </tr>
                         </thead>
                         <tbody>

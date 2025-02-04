@@ -4,7 +4,7 @@ import filterPointer from '../../../assets/filterPointer.png';
 import Search from '../../../assets/vector.png';
 import DownArrow from '../../../assets/DownArrow.svg';
 import Download from '../../../assets/Download.svg';
-import MyDatePicker from '../breastCancer/datePicker';
+import MyDatePicker from './datePicker';
 
 const ExportData = () => {
     // Sample data

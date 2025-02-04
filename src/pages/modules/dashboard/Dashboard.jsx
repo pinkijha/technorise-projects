@@ -8,21 +8,18 @@ import ScreeningData from './ScreeningData'
 const Dashboard = () => {
   return (
     <DashboardProvider>
-    <div className='relative flex md:mx-5 md:my-2'>
-    
-      <div className=''>
-      <Cards/>
-      <CandidateVisit/>
+      <div className='relative flex md:mx-5 md:my-2'>
+        <div>
+          <Cards />
+          <CandidateVisit />
+        </div>
+        <div>
+          <CenterCount />
+        </div>
       </div>
-
       <div>
-        <CenterCount/>
+        <ScreeningData />
       </div>
-
-    </div>
-    <div>
-      <ScreeningData/>
-    </div>
     </DashboardProvider>
   )
 }

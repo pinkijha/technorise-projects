@@ -16,6 +16,7 @@ export const DashboardProvider = ({ children }) => {
     cardStatus: "",
   });
   const [selectedRows, setSelectedRows] = useState([]); // State to track selected rows
+  
 
   return (
     <dashboardContext.Provider value={{ activeIndex, setActiveIndex, filters, setFilters, showFilters, selectedRows, setSelectedRows,

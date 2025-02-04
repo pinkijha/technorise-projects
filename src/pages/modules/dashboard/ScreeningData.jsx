@@ -9,16 +9,26 @@ import FilterData from './FilterData';
 import { useDashboardContext } from '../../../context/dashboardContext';
 import EditResults from './EditResults';
 import { getStatusColor } from '../../../utils/constant';
+import { useNavigate } from 'react-router-dom';
 
 
 const ScreeningData = () => {
   const {showFilters,filters, setFilters, setShowFilters, showEditResults , setShowEditResults } = useDashboardContext();
- 
+  const navigate = useNavigate(); 
 
   // Toggle filter form
   const toggleFilters = () => setShowFilters(!showFilters);
   // Toggle editresults form
   const toggleEditResults = () => setShowEditResults(!showEditResults);
+
+  const handleEdit = (id) => {
+    navigate(`/edit/${id}`); // Navigate to the EditResults page with ID
+  };
+
+  const handleClick = () => {
+    toggleEditResults();
+    handleEdit(id)
+  };
 
   // Apply filters
   const filteredData = screeningDataItems.filter((item) => {
@@ -50,7 +60,7 @@ const ScreeningData = () => {
           <button className={btnStyle} onClick={toggleFilters}>
             Filter Data <GrFilter className="md:ml-2 " />
           </button>
-          <button className={btnStyle} onClick={toggleEditResults} >
+          <button className={btnStyle} onClick={handleClick} >
             Edit Result <BiEdit className="md:ml-2 text-[16px]" />
           </button>
         </div>

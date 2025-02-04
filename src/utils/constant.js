@@ -38,7 +38,7 @@ export const registerValidationSchema = Yup.object({
    // Function to get the text color based on status
   export const getStatusColor = (status) => {
     if (status === "Pending") return "text-red-500"; // Red for pending
-    if (status === "Submitted" || status === "Handout") return "text-blueDark"; // Blue for submitted/handout
+    if (status === "Submitted" || status === "Handout") return "text-blue-600"; // Blue for submitted/handout
     return "text-gray-500"; // Default color
   };
 

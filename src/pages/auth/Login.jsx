@@ -17,7 +17,7 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex flex-col md:h-screen bg-customBlue">
+      <div className="flex flex-col md:h-screen bg-blue-100">
         <div>
           <img
             src={logo}

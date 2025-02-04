@@ -80,13 +80,11 @@ const ChartSection = () => {
   };
 
   return (
-    <div className="chart-section rounded-md bg-[#ffffff] my-2">
+    <div className="chart-section">
       <div className="chart-controls flex justify-between items-center px-4 py-2">
         <h2 className="text-xl font-semibold">Candidate Visits</h2>
-        <div className=" flex gap-4 items-center">
-          <span className='text-sm text-slate-500'>Sort by</span>
         <select
-          className="chart-range-selector px-2 py-1 rounded-md border border-slate-300 text-blue-500"
+          className="chart-range-selector"
           value={chartData}
           onChange={handleChartRangeChange}
         >
@@ -94,9 +92,8 @@ const ChartSection = () => {
           <option value="perWeek">Per Week</option>
           <option value="perMonth">Per Month</option>
         </select>
-        </div>
       </div>
-      <div className="chart-container" style={{ height: '35vh', width: '50vw' }}>
+      <div className="chart-container" style={{ height: '35vh', width: '48vw' }}>
         <Line data={getChartData()} options={chartOptions} />
       </div>
     </div>

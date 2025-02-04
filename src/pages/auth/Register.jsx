@@ -9,7 +9,7 @@ const Register = () => {
 
   return (
     <>
-    <div className="flex flex-col md:h-screen bg-customBlue">
+    <div className="flex flex-col md:h-screen bg-[#E6F8FF]">
        <div>          
               <img src={logo} alt="logo" className="md:h-[77px] md:ml-[160px] md:mt-[30px]" />
               </div>

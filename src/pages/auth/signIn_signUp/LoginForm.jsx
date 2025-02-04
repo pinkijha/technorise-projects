@@ -74,7 +74,7 @@ const LoginForm = () => {
   }, []);
   return (
     //  {/* Right side: Login Form */}
-    <div className="bg-blue">
+    <div className="bg-[#4898FF]">
       <div
         className="flex flex-col md:w-[600px] md:h-[550px] rounded-tl-[100px]  justify-center
      bg-white"
@@ -145,7 +145,7 @@ const LoginForm = () => {
                   type="submit"
                   className="flex justify-center items-center text-[16px] text-center font-poppins md:w-full bg-[#447BFF]
                text-white
-               h-[40px] rounded-xl hover:bg-blue hover:shadow-md w-[120px] disabled:bg-[#D3D3D3]"
+               h-[40px] rounded-xl hover:bg-[#4898FF] hover:shadow-md w-[120px] disabled:bg-[#D3D3D3]"
                   disabled={loading}
                 >
                   {loading ? (

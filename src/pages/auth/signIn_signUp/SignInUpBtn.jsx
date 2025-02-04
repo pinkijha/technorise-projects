@@ -14,7 +14,7 @@ const SignInUpBtn = () => {
         <p
           className={`cursor-pointer pb-1 ${
             location.pathname === '/register'
-              ? 'border-b-4 border-blue text-gray-600'
+              ? 'border-b-4 border-[#E6F8FF] text-gray-600'
               : ''
           }`}
         >
@@ -27,7 +27,7 @@ const SignInUpBtn = () => {
         <p
           className={`cursor-pointer pb-1 ${
             location.pathname === '/'
-              ? 'border-b-4 border-blue text-gray-600'
+              ? 'border-b-4 border-[#4898FF] text-gray-600'
               : ''
           }`}
         >

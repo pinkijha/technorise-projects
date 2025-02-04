@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import SuperAdminSidebar from "../sidebar/SuperAdminSidebar";
 import SuperAdminHeader from "../header/SuperAdminHeader";
 
+
 const SuperAdminLayout = ({
   children,
   setActiveTab,
   hideSidebarAndHeader = false,
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [selectedItem, setSelectedItem] = useState("Dashboard");
 
   return (
     <div className="flex h-screen bg-gray-100">
@@ -17,7 +19,9 @@ const SuperAdminLayout = ({
             isCollapsed ? "w-20" : "w-[280px]"
           }`}
         >
-          <SuperAdminSidebar
+           <SuperAdminSidebar
+            selectedItem={selectedItem}
+            setSelectedItem={setSelectedItem}
             setActiveTab={setActiveTab}
             isCollapsed={isCollapsed}
           />
@@ -30,12 +34,13 @@ const SuperAdminLayout = ({
       >
         {!hideSidebarAndHeader && (
           <SuperAdminHeader
-            isCollapsed={isCollapsed}
-            setIsCollapsed={setIsCollapsed}
-          />
+          selectedItem={selectedItem}
+          isCollapsed={isCollapsed}
+          setIsCollapsed={setIsCollapsed}
+        />
         )}
         <main className="flex-1 overflow-y-auto">{children}</main>
-      </div>
+        </div>
     </div>
   );
 };

@@ -4,9 +4,9 @@ import userSignIn from "../../../assets/userSignIn.png";
 const LoginUserImg = () => {
   return (
     // {/* Left side: Background Color */}
-    <div className="bg-white">
-      <div
-      className=" relative flex flex-row  rounded-br-[100px] rounded-tr-[-100px]  bg-blue md:h-[550px]  md:ml-[160px] md:space-y-20 
+    <div className="bg-white w-fit">
+   <div
+      className=" relative w-fit flex flex-row  rounded-br-[100px] rounded-tr-[-100px]  bg-[#4898FF] md:h-[550px]  md:ml-[160px] md:space-y-20 
      md:w-[550px] md:py-10"
     >
       <h1
@@ -22,8 +22,9 @@ const LoginUserImg = () => {
           alt="UserICon"
         />
       </div>
-    </div>
-    </div>
+ 
+   </div>
+   </div>
   );
 };
 
