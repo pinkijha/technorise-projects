@@ -17,13 +17,13 @@ const Login = () => {
 
   return (
     <>
-      <div className="flex flex-col md:h-screen bg-blue-100">
+      <div className="flex flex-col md:h-screen bg-white">
         <div>
-          <img
+          {/* <img
             src={logo}
             alt="logo"
             className="md:h-[77px] md:ml-[160px] md:mt-[30px]"
-          />
+          /> */}
         </div>
         <div className="flex flex-row">
           <LoginUserImg />

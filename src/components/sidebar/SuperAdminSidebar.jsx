@@ -7,7 +7,8 @@ import { useSignIn } from "../../hooks/auth/useSignIn";
 import { useNavigate } from "react-router-dom";
 import { userAuthState } from "../../state/authenticatedState/authenticatedState";
 import { useSetRecoilState } from "recoil";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo1.jpeg";
+import icon from "../../assets/icon.png"
 
 const SuperAdminSidebar = ({ setActiveTab, isCollapsed,selectedItem,setSelectedItem }) => {
   const [isInventoryExpanded, setInventoryExpanded] = useState(false);
@@ -54,10 +55,11 @@ const SuperAdminSidebar = ({ setActiveTab, isCollapsed,selectedItem,setSelectedI
               // alt="Technokrate Small Logo"
             />
           ) : (
-            <img
-              className="h-[110px] w-[220px] object-contain"
-              src={logo}
-            />
+            // <img
+            //   className="h-[70px] w-[200px] object-contain"
+            //   src={logo}
+            // />
+            <p className="mt-3 font-bold text-2xl">Admin Dashboard</p>
           )}
         </div>
 
@@ -77,7 +79,7 @@ const SuperAdminSidebar = ({ setActiveTab, isCollapsed,selectedItem,setSelectedI
                 >
                   <span className={isCollapsed ? "" : "ml-0"}>
                     <img
-                      // src={technokrateSmallLogo}
+                      src= {icon}
                       alt="Warehouse Icon"
                       className="w-4 h-4"
                     />
@@ -100,7 +102,7 @@ const SuperAdminSidebar = ({ setActiveTab, isCollapsed,selectedItem,setSelectedI
                 >
                   <span className={isCollapsed ? "" : "ml-0"}>
                     <img
-                      // src={technokrateSmallLogo}
+                      src= {icon}
                       alt="Warehouse Icon"
                       className="w-4 h-4"
                     />
@@ -123,7 +125,7 @@ const SuperAdminSidebar = ({ setActiveTab, isCollapsed,selectedItem,setSelectedI
                 >
                   <span className={isCollapsed ? "" : "ml-0"}>
                     <img
-                      // src={technokrateSmallLogo}
+                      src= {icon}
                       alt="Warehouse Icon"
                       className="w-4 h-4"
                     />
@@ -146,7 +148,7 @@ const SuperAdminSidebar = ({ setActiveTab, isCollapsed,selectedItem,setSelectedI
                 >
                   <span className={isCollapsed ? "" : "ml-0"}>
                     <img
-                      // src={technokrateSmallLogo}
+                      src= {icon}
                       alt="Warehouse Icon"
                       className="w-4 h-4"
                     />
